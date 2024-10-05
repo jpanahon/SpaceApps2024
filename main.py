@@ -1,5 +1,8 @@
+import itertools;
 import pygame
 from pygame.locals import *
+
+from skymap import *;
  
 class App:
     def __init__(self):
@@ -12,6 +15,7 @@ class App:
         self.size = self.width, self.height = self.screen_info.current_w, self.screen_info.current_h - 45
         self.display_surf = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         self.running = True
+        return True;
  
     def on_event(self, event):
         if event.type == pygame.QUIT:
@@ -21,13 +25,15 @@ class App:
         pass
 
     def on_render(self):
-        pass
+        for y, x in itertools.product(range(0, 3), range(0, 3)):
+            Star(x * 200 + 300, y * 200 + 300, y * 3 + x + 2).draw(self.display_surf);
+        pygame.display.flip();
 
     def on_cleanup(self):
         pygame.quit()
  
     def on_execute(self):
-        if self.on_init() == False:
+        if not self.on_init():
             self.running = False
  
         while self.running:
