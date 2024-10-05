@@ -10,7 +10,7 @@ class App:
         pygame.init()
         self.screen_info = pygame.display.Info()
         self.size = self.width, self.height = self.screen_info.current_w, self.screen_info.current_h - 45
-        self.display_surf = pygame.display.set_mode(self.size, pygame.RESIZABLE)
+        self.display_surf = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         self.running = True
  
     def on_event(self, event):
@@ -36,6 +36,7 @@ class App:
 
             self.on_loop()
             self.on_render()
+            
         self.on_cleanup()
  
 if __name__ == "__main__" :
