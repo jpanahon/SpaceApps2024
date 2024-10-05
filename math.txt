@@ -1,0 +1,20 @@
+v = [x,y,z]
+
+theta = dec
+phi = ra
+r = distance
+
+x= r sin theta cos phi
+y = r sin theta sin phi
+z = r cos theta
+
+
+v_1+v_2=v_3
+
+star - planet
+
+We know v_1, v_3,
+
+v_2 = v_3 - v_1
+
+https://en.wikipedia.org/wiki/Spherical_coordinate_system
