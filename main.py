@@ -8,6 +8,8 @@ class App:
     def __init__(self):
         self.running = True
         self.display_surf = None
+        self.stararr = list();
+        self.edgearr = list();
  
     def on_init(self):
         pygame.init()
@@ -25,8 +27,20 @@ class App:
         pass
 
     def on_render(self):
+        # test code
+        stars = list();
         for y, x in itertools.product(range(0, 3), range(0, 3)):
-            Star(x * 200 + 300, y * 200 + 300, y * 3 + x + 2).draw(self.display_surf);
+            s = Star(x * 200 + 300, y * 200 + 300, y * 3 + x + 2)
+            stars.append(s);
+            s.draw(self.display_surf);
+        for m, n in itertools.product(stars, stars):
+            if(not m is n):
+                draw_edge(self.display_surf, (m, n));
+        # test code end
+        for st in self.stararr:
+            st.draw(self.display_surf);
+        for e in self.edgearr:
+            draw_edge(self.display_surf, e);
         pygame.display.flip();
 
     def on_cleanup(self):

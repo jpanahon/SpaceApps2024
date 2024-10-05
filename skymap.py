@@ -39,4 +39,4 @@ class Star(object):
 
 # e is a pair of stars
 def draw_edge(g, e):
-    pygame.draw.line(g, pygame.Color("white"), e[0].coord_tuple(), e[1].coord_tuple(), 6);
+    pygame.draw.line(g, pygame.Color("white"), e[0].coord_tuple(), e[1].coord_tuple(), 1);
